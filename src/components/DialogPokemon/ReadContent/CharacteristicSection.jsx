@@ -20,7 +20,7 @@ const CharacteristicSection = ({ hp, weight, height }) => {
           Altura
         </S.DialogPokemonCharacteristicItemTitle>
         <S.DialogPokemonCharacteristicItemValue>
-          {height / 100} m
+          {height / 10} m
         </S.DialogPokemonCharacteristicItemValue>
       </S.DialogPokemonCharacteristicItem>
       <S.DialogPokemonCharacteristicItem>
