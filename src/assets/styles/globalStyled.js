@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -66,4 +66,21 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
-`
+
+
+  .dialog-wrapper-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .rc-dialog {
+      @media (max-width: 767px) {
+        margin: 0;
+        &-content {
+          width: 100vw;
+          height: 100vh;
+        }
+      }
+    }
+  }
+`;
