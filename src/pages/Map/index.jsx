@@ -8,7 +8,9 @@ import Sidebar from 'components/Sidebar';
 
 import DialogPokemon from 'components/DialogPokemon';
 import { catchPokemonWithDetails } from 'services/pokemon/catch';
+
 import * as S from './styled';
+import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 
 const INITIAL_STATE_FEEDBACK = {
   alwaysVisible: false,
@@ -20,33 +22,42 @@ const MapPage = () => {
   const [feedback, setFeedback] = useState(INITIAL_STATE_FEEDBACK);
   const [showDialog, setShowDialog] = useState(false);
   const [pokemonCatched, setPokemonCatched] = useState({});
+  const { isFull } = useCatchedPokemons();
 
   const onToggleDialog = () => {
     setShowDialog((value) => !value);
   };
 
-  const handleClick = async () => {
+  const showErrorState = (msg) => {
     setFeedback({
       alwaysVisible: true,
-      src: searchingTooltip,
-      alt: 'Buscando novo pokémon',
+      src: tooltipError,
+      alt: msg,
     });
-    const [item, error] = await catchPokemonWithDetails();
-    if (error) {
+    setTimeout(() => {
+      setFeedback(INITIAL_STATE_FEEDBACK);
+    }, 5000);
+  };
+
+  const handleClick = async () => {
+    if (isFull()) {
+      showErrorState('Não há mais lugar para pokemons');
+    } else {
       setFeedback({
         alwaysVisible: true,
-        src: tooltipError,
-        alt: 'Erro ao capturar o pokémon',
+        src: searchingTooltip,
+        alt: 'Buscando novo pokémon',
       });
-      setTimeout(() => {
-        setFeedback(INITIAL_STATE_FEEDBACK);
-      }, 5000);
-    } else {
-      setPokemonCatched(item);
-      setTimeout(() => {
-        setShowDialog(true);
-        setFeedback(INITIAL_STATE_FEEDBACK);
-      } , 500);
+      const [item, error] = await catchPokemonWithDetails();
+      if (error) {
+        showErrorState('Erro ao capturar o pokémon');
+      } else {
+        setPokemonCatched(item);
+        setTimeout(() => {
+          setShowDialog(true);
+          setFeedback(INITIAL_STATE_FEEDBACK);
+        }, 500);
+      }
     }
   };
 

@@ -1,23 +1,35 @@
-import React from "react";
+import React from 'react';
 
-import Button from "components/Button";
+import Button from 'components/Button';
 
-import iconPlus from "assets/images/plus.png";
+import iconPlus from 'assets/images/plus.png';
+import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 
-import * as S from "./styled";
+import * as S from './styled';
 
-const MAX_POKEMONS = 6;
+const Sidebar = () => {
+  const { pokemons } = useCatchedPokemons();
 
-const Sidebar = () => (
-  <S.SideBarWrapper>
-    <S.SideBarList>
-      {Array.from({ length: MAX_POKEMONS }).map((_, index) => (
-        <S.SideBarItem key={index}>?</S.SideBarItem>
-      ))}
-    </S.SideBarList>
+  const renderBullets = () => {
+    return pokemons.map((pokemon, index) => {
+      if (pokemon.isEmpty) {
+        return <S.SideBarItem key={index}>?</S.SideBarItem>;
+      }
+      return (
+        <S.SideBarItem key={index}>
+          <S.SideBarPokemonImage src={pokemon.thumbnail} alt={pokemon.name} />
+        </S.SideBarItem>
+      );
+    });
+  };
 
-    <Button icon={iconPlus} />
-  </S.SideBarWrapper>
-);
+  return (
+    <S.SideBarWrapper>
+      <S.SideBarList>{renderBullets()}</S.SideBarList>
+
+      <Button icon={iconPlus} />
+    </S.SideBarWrapper>
+  );
+};
 
 export default Sidebar;
