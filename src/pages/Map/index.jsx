@@ -18,7 +18,7 @@ const INITIAL_STATE_FEEDBACK = {
 
 const MapPage = () => {
   const [feedback, setFeedback] = useState(INITIAL_STATE_FEEDBACK);
-  const [showDialog, setShowDialog] = useState(true);
+  const [showDialog, setShowDialog] = useState(false);
   const [pokemonCatched, setPokemonCatched] = useState({});
 
   const onToggleDialog = () => {
@@ -43,8 +43,10 @@ const MapPage = () => {
       }, 5000);
     } else {
       setPokemonCatched(item);
-      setShowDialog(true);
-      setFeedback(INITIAL_STATE_FEEDBACK);
+      setTimeout(() => {
+        setShowDialog(true);
+        setFeedback(INITIAL_STATE_FEEDBACK);
+      } , 500);
     }
   };
 
@@ -55,7 +57,11 @@ const MapPage = () => {
         <S.CharacterFeedBack className='tooltip' {...feedback} />
         <S.CharacterImage src={ashFront} alt='Ash' />
       </S.BoxCharacter>
-      <DialogPokemon showDialog={showDialog} onToggleDialog={onToggleDialog} />
+      <DialogPokemon
+        pokemon={pokemonCatched}
+        showDialog={showDialog}
+        onToggleDialog={onToggleDialog}
+      />
     </S.MapWrapper>
   );
 };
