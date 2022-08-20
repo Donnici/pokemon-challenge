@@ -8,8 +8,16 @@ import pokeball from 'assets/images/pokeball.png';
 
 import * as S from './styled';
 import ReadContent from './ReadContent';
+import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 
 const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
+  const {addPokemon} = useCatchedPokemons();
+
+  const handleClickPokeball = () => {
+    addPokemon(pokemon);
+    onToggleDialog();
+  }
+
   return (
     <Dialog
       visible={showDialog}
@@ -30,7 +38,7 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
             <ReadContent pokemon={pokemon} />
           </S.DialogTranslateBox>
         </S.DialogPokemonContent>
-        <S.DialogPokeballImage src={pokeball} alt='Pokeball' />
+        <S.DialogPokeballImage src={pokeball} alt='Pokeball' onClick={handleClickPokeball} />
       </S.DialogBody>
     </Dialog>
   );
