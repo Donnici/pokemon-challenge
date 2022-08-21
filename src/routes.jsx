@@ -1,19 +1,20 @@
-import React from "react";
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
 
-import { CatchedPokemonsProvider } from "contexts/CatchedPokemons";
+import { CatchedPokemonsProvider } from 'contexts/CatchedPokemons';
 
-import MapPage from "pages/Map";
-import HomePage from "pages/Home";
+import MapPage from 'pages/Map';
+import HomePage from 'pages/Home';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route component={HomePage} exact path="/" />
         <CatchedPokemonsProvider>
-          <Route component={MapPage} path="/map" />
+          <Route component={MapPage} exact path='/map' />
         </CatchedPokemonsProvider>
+          <Redirect path='*' to='/' />
+          <Route component={HomePage} exact path='/' />
       </Switch>
     </BrowserRouter>
   );

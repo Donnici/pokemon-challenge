@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useState } from 'react';
 
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 import PropTypes from 'prop-types';
 
 export const CatchedPokemonsContext = createContext({});

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import CharacteristicSection from './CharacteristicSection';
 import SkillSection from './SkillSection';
 import TypeSection from './TypeSection';
+import StatisticsSection from './StatisticsSection';
 
 import * as S from './styled';
 
@@ -26,6 +27,13 @@ const ReadContent = ({ pokemon }) => {
       />
       <TypeSection types={pokemon?.types} />
       <SkillSection skills={pokemon?.skills} />
+      <StatisticsSection
+        attack={pokemon?.attack}
+        defense={pokemon?.defense}
+        specialAttack={pokemon?.specialAttack}
+        specialDefense={pokemon?.specialDefense}
+        speed={pokemon?.speed}
+      />
     </>
   );
 };

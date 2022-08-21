@@ -24,8 +24,13 @@ const MapPage = () => {
   const [pokemonCatched, setPokemonCatched] = useState({});
   const { isFull } = useCatchedPokemons();
 
-  const onToggleDialog = () => {
-    setShowDialog((value) => !value);
+  const onToggleDialog = (newValue) => {
+    setShowDialog((value) => (newValue !== undefined ? newValue : !value));
+  };
+
+  const showPokemonDetails = (pokemon) => {
+    setPokemonCatched({...pokemon, fromSidebar: true });
+    onToggleDialog(true);
   };
 
   const showErrorState = (msg) => {
@@ -63,7 +68,7 @@ const MapPage = () => {
 
   return (
     <S.MapWrapper className='map'>
-      <Sidebar />
+      <Sidebar showPokemonDetails={showPokemonDetails} />
       <S.BoxCharacter onClick={handleClick}>
         <S.CharacterFeedBack className='tooltip' {...feedback} />
         <S.CharacterImage src={ashFront} alt='Ash' />

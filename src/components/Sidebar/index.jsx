@@ -1,13 +1,14 @@
 import React from 'react';
 
-import Button from 'components/Button';
+import PropTypes from 'prop-types';
 
+import Button from 'components/Button';
 import iconPlus from 'assets/images/plus.png';
 import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 
 import * as S from './styled';
 
-const Sidebar = () => {
+const Sidebar = ({ showPokemonDetails }) => {
   const { pokemons } = useCatchedPokemons();
 
   const renderBullets = () => {
@@ -16,7 +17,7 @@ const Sidebar = () => {
         return <S.SideBarItem key={index}>?</S.SideBarItem>;
       }
       return (
-        <S.SideBarItem key={index}>
+        <S.SideBarItem key={index} onClick={() => showPokemonDetails(pokemon)}>
           <S.SideBarPokemonImage src={pokemon.thumbnail} alt={pokemon.name} />
         </S.SideBarItem>
       );
@@ -30,6 +31,10 @@ const Sidebar = () => {
       <Button icon={iconPlus} />
     </S.SideBarWrapper>
   );
+};
+
+Sidebar.propTypes = {
+  showPokemonDetails: PropTypes.func,
 };
 
 export default Sidebar;
