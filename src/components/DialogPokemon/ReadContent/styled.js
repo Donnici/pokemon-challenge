@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-
 export const DialogPokemonBoxImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +25,6 @@ export const DialogPokemonName = styled.h2`
   margin: 3rem 0;
   text-transform: uppercase;
 `;
-
 
 export const DialogPokemonCharacteristicsBox = styled.div`
   display: flex;
@@ -89,9 +87,19 @@ export const DialogPokemonSectionTitle = styled.h3`
 export const RowBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: ${({ justify }) => justify || 'space-evenly'};
   align-items: center;
   align-content: center;
+  width: ${({ width }) => width || 'initial'};
+`;
+
+export const ColBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* justify-content: space-evenly;
+  align-items: center;
+  align-content: center; */
 `;
 
 export const Skills = styled.p`
@@ -99,4 +107,25 @@ export const Skills = styled.p`
   font-weight: 600;
   text-transform: uppercase;
   margin: 0 0.5rem;
+`;
+
+export const StatisticImage = styled.img`
+  width: 2rem;
+  margin-right: 1rem;
+`;
+export const StatisticKey = styled.div`
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  align-items: center;
+  margin: 1rem 0;
+`;
+
+export const StatisticValue = styled.div`
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  align-items: center;
 `;

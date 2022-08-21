@@ -3,7 +3,7 @@ import { getPokemonDetails } from './details';
 import { catchSpec } from './mappers/catch';
 
 const getRandomPokemonPosition = () => {
-  const TOTAL_POKEMONS = 1154;
+  const TOTAL_POKEMONS = 807;
   const INITIAL_POKEMON = 1;
   const randomPosition = Math.floor(
     Math.random() * (TOTAL_POKEMONS - INITIAL_POKEMON + 1) + INITIAL_POKEMON

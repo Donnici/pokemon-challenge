@@ -72,6 +72,7 @@ export default createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 100vh;
 
     & .rc-dialog {
       @media (max-width: 767px) {

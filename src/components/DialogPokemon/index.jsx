@@ -9,13 +9,32 @@ import pokeball from 'assets/images/pokeball.png';
 import * as S from './styled';
 import ReadContent from './ReadContent';
 import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
+import Button from 'components/Button';
 
 const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
-  const {addPokemon} = useCatchedPokemons();
+  const {addPokemon, removePokemon} = useCatchedPokemons();
 
   const handleClickPokeball = () => {
     addPokemon(pokemon);
-    onToggleDialog();
+    onToggleDialog(false);
+  }
+
+  const handleRemovePokemon = () => {
+    removePokemon(pokemon.id);
+    onToggleDialog(false);
+  }
+
+  const renderButton = () => {
+    if (pokemon.fromSidebar) {
+      return (
+        <S.DialogActionFloatBoxWrapper>
+          <Button text='LIBERAR POKEMON' onClick={handleRemovePokemon} />
+        </S.DialogActionFloatBoxWrapper>
+      );
+    }
+    return (
+      <S.DialogPokeballImage src={pokeball} alt='Pokeball' onClick={handleClickPokeball} />
+    )
   }
 
   return (
@@ -24,13 +43,13 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
       wrapClassName='dialog-wrapper-center'
       animation=''
       maskAnimation='fade'
-      onClose={onToggleDialog}
+      onClose={() => onToggleDialog(false)}
       forceRender
       closable={false}
       bodyStyle={{ padding: 0 }}
     >
       <S.DialogBody>
-        <S.DialogCloseButton onClick={onToggleDialog}>
+        <S.DialogCloseButton onClick={() => onToggleDialog(false)}>
           <img src={close} alt='Fechar' />
         </S.DialogCloseButton>
         <S.DialogPokemonContent>
@@ -38,7 +57,9 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
             <ReadContent pokemon={pokemon} />
           </S.DialogTranslateBox>
         </S.DialogPokemonContent>
-        <S.DialogPokeballImage src={pokeball} alt='Pokeball' onClick={handleClickPokeball} />
+        <S.DialogActionFloatBox>
+          {renderButton()}
+        </S.DialogActionFloatBox>
       </S.DialogBody>
     </Dialog>
   );

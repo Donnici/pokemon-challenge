@@ -19,15 +19,20 @@ export const DialogCloseButton = styled.button`
 `;
 
 export const DialogBody = styled.div`
+  position: relative;
   ${({ theme }) => css`
     background-image: ${theme.colors.primary.gradient};
     padding: 0;
     display: flex;
   `}
+
   overflow: auto;
   @media (max-width: 767px) {
     width: 100vw;
     height: 100vh;
+  }
+  @media (min-width: 768px) {
+    max-height: 80vh;
   }
 `;
 
@@ -59,6 +64,10 @@ export const DialogPokemonContent = styled.div`
       height: 100%;
     }
   }
+
+  @media (max-width: 767px) {
+    height: fit-content;
+  }
 `;
 
 export const DialogTranslateBox = styled.div`
@@ -72,9 +81,28 @@ export const DialogTranslateBox = styled.div`
   transform: translateY(-10rem);
 `;
 
+export const DialogActionFloatBox = styled.div`
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  @media (max-width: 767px) {
+    position: fixed;
+    width: 100%;
+    /* right: 0;
+    left: auto; */
+  }
+`;
+
+export const DialogActionFloatBoxWrapper = styled.div`
+  @media (max-width: 767px) {
+    margin: 0 auto;
+  }
+`;
 export const DialogPokeballImage = styled.img`
-  position: fixed;
-  bottom: 0;
-  right: 35.2%;
-  border-radius: 100%;
+  @media (max-width: 767px) {
+    margin: 0 auto;
+  }
 `;
