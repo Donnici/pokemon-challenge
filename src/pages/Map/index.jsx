@@ -19,15 +19,18 @@ const INITIAL_STATE_FEEDBACK = {
 };
 
 const MapPage = () => {
+  const { isFull } = useCatchedPokemons();
+
   const [feedback, setFeedback] = useState(INITIAL_STATE_FEEDBACK);
   const [showDialog, setShowDialog] = useState(false);
+  const [newPokemon, setNewPokemon] = useState(false);
   const [pokemonCatched, setPokemonCatched] = useState({});
-  const { isFull } = useCatchedPokemons();
 
   const onToggleDialog = (newValue) => {
     setShowDialog((value) => {
-      const nextValue = (newValue !== undefined ? newValue : !value)
+      const nextValue = newValue !== undefined ? newValue : !value;
       if (!nextValue) {
+        setNewPokemon(false);
         setPokemonCatched({});
       }
       return nextValue;
@@ -35,7 +38,7 @@ const MapPage = () => {
   };
 
   const showPokemonDetails = (pokemon) => {
-    setPokemonCatched({...pokemon, fromSidebar: true });
+    setPokemonCatched({ ...pokemon, fromSidebar: true });
     onToggleDialog(true);
   };
 
@@ -50,7 +53,12 @@ const MapPage = () => {
     }, 5000);
   };
 
-  const handleClick = async () => {
+  const createPokemon = () => {
+    setNewPokemon(true);
+    setShowDialog(true);
+  };
+
+  const handleAshClick = async () => {
     if (isFull()) {
       showErrorState('Não há mais lugar para pokemons');
     } else {
@@ -74,8 +82,11 @@ const MapPage = () => {
 
   return (
     <S.MapWrapper className='map'>
-      <Sidebar showPokemonDetails={showPokemonDetails} />
-      <S.BoxCharacter onClick={handleClick}>
+      <Sidebar
+        showPokemonDetails={showPokemonDetails}
+        createPokemon={createPokemon}
+      />
+      <S.BoxCharacter onClick={handleAshClick}>
         <S.CharacterFeedBack className='tooltip' {...feedback} />
         <S.CharacterImage src={ashFront} alt='Ash' />
       </S.BoxCharacter>
@@ -83,6 +94,8 @@ const MapPage = () => {
         pokemon={pokemonCatched}
         showDialog={showDialog}
         onToggleDialog={onToggleDialog}
+        newPokemon={newPokemon}
+        setNewPokemon={setNewPokemon}
       />
     </S.MapWrapper>
   );

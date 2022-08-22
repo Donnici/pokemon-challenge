@@ -10,11 +10,11 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Redirect path='*' to='/' /> */}
         <Route component={HomePage} exact path='/' />
         <CatchedPokemonsProvider>
           <Route component={MapPage} exact path='/map' />
         </CatchedPokemonsProvider>
+        <Redirect path='*' to='/' />
       </Switch>
     </BrowserRouter>
   );

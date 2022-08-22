@@ -11,18 +11,19 @@ const InputText = ({
   value,
   onChange,
   defaultValue,
-  inputError
+  field,
+  inputError,
+  customLabel,
+  ...props
 }) => (
   <S.InputTextWrapper className={className}>
-    {label && <S.Label>{label}</S.Label>}
+    {!customLabel ? label && <S.Label>{label}</S.Label> : customLabel}
 
     <S.Input
       type={type}
       placeholder={placeholder}
-      name={name}
-      value={value}
-      onChange={onChange}
-      defaultValue={defaultValue}
+      {...field}
+      {...props}
       inputError={!!inputError}
     />
     {inputError && <S.Error>{inputError}</S.Error>}

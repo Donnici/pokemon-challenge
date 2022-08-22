@@ -3,6 +3,12 @@ import styled, { css } from 'styled-components';
 import editIcon from 'assets/images/editIcon.png';
 import { ButtonWithoutStyled } from 'components/Button/styled';
 
+export const Form = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const DialogPokemonBoxImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,7 +27,6 @@ export const DialogPokemonImage = styled.img`
   height: auto;
   margin: 6rem;
 `;
-
 
 export const EditableNameBox = styled.div`
   display: flex;

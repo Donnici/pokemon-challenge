@@ -88,3 +88,9 @@ export const Arrow = styled.img`
     transform: rotate(180deg);
   }
 `;
+
+export const Error = styled.span`
+  color: ${({ theme }) => theme.colors.functional.action.default};
+  font-size: 1.5rem;
+  font-weight: 600;
+`;

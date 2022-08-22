@@ -12,8 +12,8 @@ export const ButtonWithoutStyled = styled.button`
 
 export const ButtonWrapper = styled.button`
   padding: 1.6rem 2.4rem;
-  background-color: #ff3d71;
-  border: 1px solid #ff3d71;
+  background-color: ${({ disabled}) => disabled ? 'silver': '#ff3d71'};
+  border: 1px solid ${({ disabled}) => disabled ? 'silver': '#ff3d71'};
   border-radius: 42px;
   font-weight: bold;
   font-size: 1.6rem;
@@ -34,7 +34,7 @@ export const ButtonWrapper = styled.button`
   }
 
   &:hover {
-    background-color: #db2c66;
+    background-color: ${({ disabled}) => disabled ? 'silver': '#db2c66'};
   }
 `;
 

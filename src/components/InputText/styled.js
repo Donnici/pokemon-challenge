@@ -24,7 +24,7 @@ export const Input = styled.input`
   border: ${({ theme, inputError }) =>
     inputError
       ? `2px solid ${theme.colors.functional.action.default}`
-      : '2px solid #e4e9f;'};
+      : '2px solid #e4e9f2'};
   border-radius: 3px;
   overflow: hidden;
   display: flex;
