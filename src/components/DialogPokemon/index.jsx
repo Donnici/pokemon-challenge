@@ -11,20 +11,23 @@ import ReadContent from './ReadContent';
 import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 import Button from 'components/Button';
 
-const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
-  const {addPokemon, removePokemon} = useCatchedPokemons();
+const DialogPokemon = ({ showDialog, onToggleDialog, pokemon, newPokemon }) => {
+  const { addPokemon, removePokemon } = useCatchedPokemons();
 
   const handleClickPokeball = () => {
     addPokemon(pokemon);
     onToggleDialog(false);
-  }
+  };
 
   const handleRemovePokemon = () => {
     removePokemon(pokemon.id);
     onToggleDialog(false);
-  }
+  };
 
   const renderButton = () => {
+    if (newPokemon) {
+      return <Button text='CRIAR POKEMON' onClick={handleRemovePokemon} />;
+    }
     if (pokemon.fromSidebar) {
       return (
         <S.DialogActionFloatBoxWrapper>
@@ -33,9 +36,21 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
       );
     }
     return (
-      <S.DialogPokeballImage src={pokeball} alt='Pokeball' onClick={handleClickPokeball} />
-    )
-  }
+      <S.DialogPokeballImage
+        src={pokeball}
+        alt='Pokeball'
+        onClick={handleClickPokeball}
+      />
+    );
+  };
+
+  const renderDialogContent = () => {
+    if (newPokemon) {
+      return null;
+    }
+
+    return <ReadContent pokemon={pokemon} />;
+  };
 
   return (
     <Dialog
@@ -53,13 +68,9 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
           <img src={close} alt='Fechar' />
         </S.DialogCloseButton>
         <S.DialogPokemonContent>
-          <S.DialogTranslateBox>
-            <ReadContent pokemon={pokemon} />
-          </S.DialogTranslateBox>
+          <S.DialogTranslateBox>{renderDialogContent()}</S.DialogTranslateBox>
         </S.DialogPokemonContent>
-        <S.DialogActionFloatBox>
-          {renderButton()}
-        </S.DialogActionFloatBox>
+        <S.DialogActionFloatBox>{renderButton()}</S.DialogActionFloatBox>
       </S.DialogBody>
     </Dialog>
   );
@@ -68,11 +79,14 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
 DialogPokemon.defaultProps = {
   showDialog: false,
   onToggleDialog: () => {},
+  newPokemon: false,
 };
 
 DialogPokemon.propTypes = {
   showDialog: PropTypes.bool,
+  newPokemon: PropTypes.bool,
   onToggleDialog: PropTypes.func,
+  setNewPokemon: PropTypes.func,
   pokemon: PropTypes.object,
 };
 

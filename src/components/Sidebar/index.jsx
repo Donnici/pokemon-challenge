@@ -8,7 +8,7 @@ import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 
 import * as S from './styled';
 
-const Sidebar = ({ showPokemonDetails }) => {
+const Sidebar = ({ showPokemonDetails, createPokemon }) => {
   const { pokemons } = useCatchedPokemons();
 
   const renderBullets = () => {
@@ -28,13 +28,14 @@ const Sidebar = ({ showPokemonDetails }) => {
     <S.SideBarWrapper>
       <S.SideBarList>{renderBullets()}</S.SideBarList>
 
-      <Button icon={iconPlus} />
+      <Button icon={iconPlus} onClick={createPokemon}/>
     </S.SideBarWrapper>
   );
 };
 
 Sidebar.propTypes = {
   showPokemonDetails: PropTypes.func,
+  createPokemon: PropTypes.func,
 };
 
 export default Sidebar;
