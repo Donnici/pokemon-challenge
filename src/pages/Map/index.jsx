@@ -25,7 +25,13 @@ const MapPage = () => {
   const { isFull } = useCatchedPokemons();
 
   const onToggleDialog = (newValue) => {
-    setShowDialog((value) => (newValue !== undefined ? newValue : !value));
+    setShowDialog((value) => {
+      const nextValue = (newValue !== undefined ? newValue : !value)
+      if (!nextValue) {
+        setPokemonCatched({});
+      }
+      return nextValue;
+    });
   };
 
   const showPokemonDetails = (pokemon) => {

@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+export const ButtonWithoutStyled = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+`;
 
 export const ButtonWrapper = styled.button`
   padding: 1.6rem 2.4rem;
@@ -31,3 +41,20 @@ export const ButtonWrapper = styled.button`
 export const Icon = styled.img``;
 
 export const Text = styled.span``;
+
+export const ButtonIcon = styled(ButtonWithoutStyled)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: #edf1f7;
+  border-radius: 4px;
+`;
+
+export const ButtonIconImage = styled.img`
+  display: flex;
+  width:${({ width }) => width || '1.6rem'};
+  height:${({ height }) => height || '1.2rem'};
+`;

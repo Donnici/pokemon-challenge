@@ -21,6 +21,14 @@ export const CatchedPokemonsProvider = ({ children }) => {
     Cookies.set('pokemons', JSON.stringify(newList));
   }, [pokemons, setPokemons]);
 
+  const updatePokemon = useCallback((newPokemon) => {
+    const index = pokemons.findIndex((p) => p.id === newPokemon.id);
+    const newList = [...pokemons];
+    newList[index] = { ...newPokemon };
+    setPokemons(newList);
+    Cookies.set('pokemons', JSON.stringify(newList));
+  }, [pokemons, setPokemons]);
+
   const removePokemon = useCallback((pokemonId) => {
     const index = pokemons.findIndex((p) => p.id === pokemonId);
     const newList = [...pokemons];
@@ -49,6 +57,7 @@ export const CatchedPokemonsProvider = ({ children }) => {
     <CatchedPokemonsContext.Provider
       value={{
         addPokemon,
+        updatePokemon,
         removePokemon,
         getPokemonDetails,
         pokemons,

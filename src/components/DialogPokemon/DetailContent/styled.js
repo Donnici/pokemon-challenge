@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
 
+import editIcon from 'assets/images/editIcon.png';
+import { ButtonWithoutStyled } from 'components/Button/styled';
+
 export const DialogPokemonBoxImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,10 +22,35 @@ export const DialogPokemonImage = styled.img`
   margin: 6rem;
 `;
 
+
+export const EditableNameBox = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 2.4rem 0;
+  gap: 0.8rem;
+
+  & .max-space {
+    flex: 1;
+  }
+`;
+
+export const DialogPokemonNameBox = styled(ButtonWithoutStyled)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const DialogPokemonNameIcon = styled.img.attrs({
+  src: editIcon,
+})`
+  width: 1.6rem;
+  height: 1.6rem;
+`;
+
 export const DialogPokemonName = styled.h2`
   font-size: 2rem;
   font-weight: 600;
-  margin: 3rem 0;
+  margin: 3rem 2.8rem;
   text-transform: uppercase;
 `;
 

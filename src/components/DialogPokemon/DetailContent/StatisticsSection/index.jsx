@@ -6,7 +6,7 @@ import sword from 'assets/images/sword.png';
 import speedIcon from 'assets/images/speed.png';
 import shield from 'assets/images/shield.png';
 
-import * as S from './styled';
+import * as S from '../styled';
 
 const StatisticsSection = ({
   attack,

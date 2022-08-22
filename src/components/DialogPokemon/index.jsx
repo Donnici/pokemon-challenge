@@ -7,12 +7,12 @@ import close from 'assets/images/close.png';
 import pokeball from 'assets/images/pokeball.png';
 
 import * as S from './styled';
-import ReadContent from './ReadContent';
+import DetailContent from './DetailContent';
 import useCatchedPokemons from 'contexts/CatchedPokemons/useCatchedPokemons';
 import Button from 'components/Button';
 
 const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
-  const {addPokemon, removePokemon} = useCatchedPokemons();
+  const { addPokemon, removePokemon } = useCatchedPokemons();
 
   const handleClickPokeball = () => {
     addPokemon(pokemon);
@@ -44,9 +44,9 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
       animation=''
       maskAnimation='fade'
       onClose={() => onToggleDialog(false)}
-      forceRender
       closable={false}
       bodyStyle={{ padding: 0 }}
+      destroyOnClose={true}
     >
       <S.DialogBody>
         <S.DialogCloseButton onClick={() => onToggleDialog(false)}>
@@ -54,7 +54,7 @@ const DialogPokemon = ({ showDialog, onToggleDialog, pokemon }) => {
         </S.DialogCloseButton>
         <S.DialogPokemonContent>
           <S.DialogTranslateBox>
-            <ReadContent pokemon={pokemon} />
+            <DetailContent pokemon={pokemon} onClose={() => onToggleDialog(false)} />
           </S.DialogTranslateBox>
         </S.DialogPokemonContent>
         <S.DialogActionFloatBox>
