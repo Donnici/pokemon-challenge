@@ -7,13 +7,6 @@
 Desenvolver uma aplicação web com o objetivo de avaliarmos o seu domínio em front-end, ou seja, sua organização, estilo e boas práticas com o código, conhecimento dos frameworks e tecnologias utilizadas.
 
 #
-## 🔗 **Links**
-#### **Segue links uteis para resolução do desafio:**
-- [PokéApi](https://pokeapi.co/)
-- [Layout Desktop](https://www.figma.com/proto/l92meWj5EzwY3q8XZro1i0/Teste-Front?node-id=13%3A13571&scaling=min-zoom)
-- [Layout Mobile](https://www.figma.com/proto/l92meWj5EzwY3q8XZro1i0/Teste-Front?node-id=41%3A18782&scaling=min-zoom)
-- [Style Guide](https://www.figma.com/proto/l92meWj5EzwY3q8XZro1i0/Teste-Front?node-id=36%3A2135&scaling=min-zoom)
-- [Componentes](https://www.figma.com/proto/l92meWj5EzwY3q8XZro1i0/Teste-Front?node-id=27%3A18584&scaling=min-zoom)
 - [Issues](https://bitbucket.org/fdtedsd/teste-frontend/issues)
 
 #
@@ -39,15 +32,6 @@ Desenvolver uma aplicação web com o objetivo de avaliarmos o seu domínio em f
 - [x] Responsividade para resoluções desktop e mobile. (Ex: 1280 x 720, 360 x 740)
 #
 
-## 📖 **Regras**
-- Todo o seu código deve ser disponibilizado em um repositório público ou privado em seu Github ou Bitbucket pessoal;
-- Envie o link para [FDTE RH](mailto:vanessa.bruno@fdte.io?subject=Teste_Front-End_ReactJS);
-- Escolha uma das duas versões abaixo para realizar o teste:
-  * Versão [com sass](https://bitbucket.org/fdtedsd/teste-frontend/src/master/examples/with-sass/);
-  * Versão [com styled-components](https://bitbucket.org/fdtedsd/teste-frontend/src/master/examples/with-styled-components/);
-- Utilizar a [PokéApi](https://pokeapi.co/) para interagir com a aplicação;
-- Usar componentes funcionais e hooks;
-- Não usar componentes de Class;
 #
 ## 🚀 **Tecnologias**
 #### **Para a resolução do desafio, fique a vontade para utilizar as tecnologias citadas abaixo:**
