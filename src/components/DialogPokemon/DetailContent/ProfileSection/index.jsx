@@ -48,6 +48,7 @@ const ProfileSection = ({ pokemon, onClose, showForm, changeToForm }) => {
   useEffect(() => {
     setInputValue(pokemon.name);
     setEditable(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderPokemonName = () => {
