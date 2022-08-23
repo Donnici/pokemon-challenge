@@ -1,11 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
   * {
     box-sizing: border-box;
     margin: 0;
     outline: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
   }
 
   html {
@@ -46,21 +48,25 @@ export default createGlobalStyle`
   h5,
   h6  {
     font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
   }
 
   b,
   strong {
     font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
   }
 
   p {
     font-size: 1rem;
     line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
   }
 
   input ,
   select {
     appearance: none;
+    font-family: 'Open Sans', sans-serif;
   }
 
   ul {
