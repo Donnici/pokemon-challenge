@@ -64,6 +64,7 @@ export const CatchedPokemonsProvider = ({ children }) => {
     } else {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(pokemons));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
