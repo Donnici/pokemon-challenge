@@ -12,7 +12,7 @@ import Button from 'components/Button';
 import * as S from '../styled';
 import ProfileSectionForm from './form';
 
-const ProfileSection = ({ pokemon, onClose, showForm }) => {
+const ProfileSection = ({ pokemon, onClose, showForm, changeToForm }) => {
   const [editable, setEditable] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [inputError, setInputError] = useState(null);
@@ -39,6 +39,11 @@ const ProfileSection = ({ pokemon, onClose, showForm }) => {
     setEditable(false);
     setInputValue(pokemon.name);
   };
+
+  const handleEditPokemon = () => {
+    changeToForm();
+    setEditable(true)
+  }
 
   useEffect(() => {
     setInputValue(pokemon.name);
@@ -72,7 +77,7 @@ const ProfileSection = ({ pokemon, onClose, showForm }) => {
     }
     if (pokemon.fromSidebar) {
       return (
-        <S.DialogPokemonNameBox onClick={() => setEditable(true)}>
+        <S.DialogPokemonNameBox onClick={handleEditPokemon}>
           <S.DialogPokemonName>{pokemon?.name}</S.DialogPokemonName>
           <S.DialogPokemonNameIcon />
         </S.DialogPokemonNameBox>
@@ -101,6 +106,7 @@ const ProfileSection = ({ pokemon, onClose, showForm }) => {
 ProfileSection.propTypes = {
   pokemon: PropTypes.object,
   onClose: PropTypes.func,
+  changeToForm: PropTypes.func,
   showForm: PropTypes.bool,
 };
 

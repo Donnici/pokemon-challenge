@@ -1,12 +1,15 @@
 import * as Yup from 'yup';
 
-export const PokemonInitialValue = (pokemon) => {
+export const PokemonInitialValue = (pokemon, getLocaleText) => {
   return {
     name: pokemon?.name || '',
-    hp: pokemon?.hp || 0,
-    weight: pokemon?.weight || 0,
-    height: pokemon?.height || 0,
-    type: pokemon?.type || [],
+    hp: pokemon?.hp || '',
+    weight: pokemon?.weight || '',
+    height: pokemon?.height || '',
+    types: pokemon?.types?.map(type => ({
+      label: getLocaleText(`pokemon.types.${type}`),
+      value: type
+    })) || [],
     skills: pokemon?.skills ? pokemon?.skills.split(', ') : [],
     attack: pokemon?.attack || '',
     defense: pokemon?.defense || '',
@@ -22,14 +25,6 @@ export const PokemonSchema = Yup.object().shape({
   hp: Yup.number().min(1, 'Deve ser maior que 0').required('O campo é obrigatório'),
   weight: Yup.number().min(1, 'Deve ser maior que 0').required('O campo é obrigatório'),
   height: Yup.number().min(1, 'Deve ser maior que 0').required('O campo é obrigatório'),
-  // type: Yup.array(Yup.string())
-  //   .min(1, 'Deve ser maior que 0')
-  //   .max(2, 'Deve ser menor ou igual 2')
-  //   .required('O campo tipo é obrigatório'),
-  // skills: Yup.array(Yup.string())
-  //   .min(1, 'Deve ser maior que 0')
-  //   .max(2, 'Deve ser menor ou igual 2')
-  //   .required('O campo tipo é obrigatório'),
   attack: Yup.number().required('O campo é obrigatório'),
   defense: Yup.number().required('O campo é obrigatório'),
   speed: Yup.number().required('O campo é obrigatório'),
@@ -37,5 +32,4 @@ export const PokemonSchema = Yup.object().shape({
   specialDefense: Yup.number().required(
     'O campo é obrigatório'
   ),
-  // image: Yup.string().required('O campo é obrigatório'),
 });

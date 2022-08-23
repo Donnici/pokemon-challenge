@@ -1,16 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import chevron from "assets/images/chevronDownBlack.png";
+import Select from 'react-select';
 
-import * as S from "./styled";
+import chevron from 'assets/images/chevronDownBlack.png';
+
+import * as S from './styled';
 
 const DropdownPage = ({ label, options }) => (
   <S.DropdownWrapper>
     {label && <S.Label>{label}</S.Label>}
 
     <S.DropdownContent>
-      <S.Select>
-        <S.DropdownOption value="">Selecione o(s) tipo(s)</S.DropdownOption>
+      <S.Select multiple>
+        <S.DropdownOption value=''>Selecione o(s) tipo(s)</S.DropdownOption>
         {options &&
           options.map((option, index) => (
             <S.DropdownOption key={index} value={option.value}>
@@ -18,9 +20,21 @@ const DropdownPage = ({ label, options }) => (
             </S.DropdownOption>
           ))}
       </S.Select>
-      <S.DropdownIcon src={chevron} alt="Chevron" />
+      <S.DropdownIcon src={chevron} alt='Chevron' />
     </S.DropdownContent>
   </S.DropdownWrapper>
+);
+
+export const SelectField = ({ options, field, form, ...props }) => (
+  <Select
+    {...field}
+    {...props}
+    options={options}
+    value={
+      options ? options.find((option) => option.value === field.value) : ''
+    }
+    onChange={(option) => form.setFieldValue(field.name, option.value)}
+  />
 );
 
 export default DropdownPage;

@@ -83,8 +83,9 @@ export const DialogTranslateBox = styled.div`
 
 export const DialogActionFloatBox = styled.div`
   display: flex;
-  position: absolute;
-  bottom: 25px;
+  position: fixed;
+  bottom: 90px;
+
   left: 50%;
   transform: translate(-50%, 0);
 

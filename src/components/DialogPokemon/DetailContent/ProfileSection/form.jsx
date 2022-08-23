@@ -35,13 +35,15 @@ const ProfileSectionForm = () => {
         />
         <input id='pokemonImageField' type='file' hidden onChange={saveFile} />
       </S.DialogPokemonBoxImage>
-      <Field
-        label='Nome'
-        name='name'
-        placeholder='Nome'
-        inputError={touched.name && errors.name}
-        component={InputText}
-      />
+      <S.ColBox>
+        <Field
+          label='Nome'
+          name='name'
+          placeholder='Nome'
+          inputError={touched.name && errors.name}
+          component={InputText}
+        />
+      </S.ColBox>
     </>
   );
 };

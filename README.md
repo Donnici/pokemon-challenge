@@ -30,10 +30,10 @@ Desenvolver uma aplicação web com o objetivo de avaliarmos o seu domínio em f
 - [ ] Selecionando qualquer Pokémon na SideBar o usuário pode ver os detalhes do Pokémon.
 - [x] O(s) tipo(s) do Pokémon deve ser traduzido (ex: water => Água).
 - [x] Usuário pode editar SOMENTE o nome de um Pokémon que foi capturado.
-- [ ] Na SideBar o usuário tem a possibilidade de criar um Pokémon (um Pokémon pode ter no máximo 2 "tipos").
-- [ ] O formulário de criação de Pokémon deve conter validações em todos os campos.
-- [ ] Caso algum campo não esteja preenchido, o botão de criação deve ficar bloqueado.
-- [ ] Para um Pokémon criado o usuário pode editar qualquer informação ou liberá-lo.
+- [x] Na SideBar o usuário tem a possibilidade de criar um Pokémon (um Pokémon pode ter no máximo 2 "tipos").
+- [x] O formulário de criação de Pokémon deve conter validações em todos os campos.
+- [x] Caso algum campo não esteja preenchido, o botão de criação deve ficar bloqueado.
+- [x] Para um Pokémon criado o usuário pode editar qualquer informação ou liberá-lo.
 - [x] Sempre que liberar um Pokémon é possível capturar outro através da busca ou criar um customizado.
 - [x] Caso as 6 posições estejam ocupadas o usuário não pode mais buscar nem criar novos Pokémons.
 - [x] Responsividade para resoluções desktop e mobile. (Ex: 1280 x 720, 360 x 740)
