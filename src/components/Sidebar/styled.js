@@ -43,6 +43,6 @@ export const SideBarItem = styled.li`
 `;
 
 export const SideBarPokemonImage = styled.img`
-  width: auto;
-  height: 6rem;
+  max-width: 4rem;
+  height: 4rem;
 `;

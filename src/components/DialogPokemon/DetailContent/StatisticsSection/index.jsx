@@ -6,15 +6,21 @@ import sword from 'assets/images/sword.png';
 import speedIcon from 'assets/images/speed.png';
 import shield from 'assets/images/shield.png';
 
-import * as S from './styled';
+import * as S from '../styled';
+import StatisticsSectionForm from './form';
 
 const StatisticsSection = ({
   attack,
   defense,
   specialAttack,
   specialDefense,
-  speed
+  speed,
+  showForm
  }) => {
+
+  if (showForm) {
+    return <StatisticsSectionForm />
+  }
 
   const statistics = [
     {
@@ -74,6 +80,7 @@ StatisticsSection.propTypes = {
   specialAttack: PropTypes.number,
   specialDefense: PropTypes.number,
   speed: PropTypes.number,
+  showForm: PropTypes.bool,
 };
 
 export default StatisticsSection;

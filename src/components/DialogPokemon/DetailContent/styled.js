@@ -1,4 +1,17 @@
 import styled, { css } from 'styled-components';
+import ReactSelect from 'react-select';
+
+import editIcon from 'assets/images/editIcon.png';
+import { ButtonWithoutStyled } from 'components/Button/styled';
+
+export const Form = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+`;
 
 export const DialogPokemonBoxImage = styled.div`
   display: flex;
@@ -19,11 +32,36 @@ export const DialogPokemonImage = styled.img`
   margin: 6rem;
 `;
 
+export const EditableNameBox = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 2.4rem 0;
+  gap: 0.8rem;
+
+  & .max-space {
+    flex: 1;
+  }
+`;
+
+export const DialogPokemonNameBox = styled(ButtonWithoutStyled)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const DialogPokemonNameIcon = styled.img.attrs({
+  src: editIcon,
+})`
+  width: 1.6rem;
+  height: 1.6rem;
+`;
+
 export const DialogPokemonName = styled.h2`
   font-size: 2rem;
   font-weight: 600;
-  margin: 3rem 0;
+  margin: 3rem 2.8rem;
   text-transform: uppercase;
+  text-align: center;
 `;
 
 export const DialogPokemonCharacteristicsBox = styled.div`
@@ -97,9 +135,6 @@ export const ColBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* justify-content: space-evenly;
-  align-items: center;
-  align-content: center; */
 `;
 
 export const Skills = styled.p`
@@ -128,4 +163,10 @@ export const StatisticValue = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   align-items: center;
+`;
+
+export const Select = styled(ReactSelect)`
+    font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
 `;

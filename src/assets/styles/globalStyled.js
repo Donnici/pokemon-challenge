@@ -84,4 +84,10 @@ export default createGlobalStyle`
       }
     }
   }
+
+  @media (min-width: 768px){
+    .rc-dialog {
+      width: 36rem;
+    }
+  }
 `;

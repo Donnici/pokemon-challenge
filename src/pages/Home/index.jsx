@@ -4,14 +4,14 @@ import PokemonLogo from 'assets/images/pokemonLogo.png'
 
 import * as S from "./styled";
 import Button from "components/Button";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () =>{
-  const history = useHistory();
+  const navigate = useNavigate();
   return(
   <S.HomeWrapper>
     <img src={PokemonLogo} alt='Pokemon logo' />
-    <Button text='START' onClick={() => history.push('/map')} />
+    <Button text='START' onClick={() => navigate('/map')} />
   </S.HomeWrapper>
 )};
 

@@ -2,9 +2,15 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import * as S from './styled';
+import * as S from '../styled';
+import CharacteristicSectionForm from './form';
 
-const CharacteristicSection = ({ hp, weight, height }) => {
+const CharacteristicSection = ({ hp, weight, height, showForm }) => {
+
+  if (showForm) {
+    return <CharacteristicSectionForm />
+  }
+
   return (
     <S.DialogPokemonCharacteristicsBox>
       <S.DialogPokemonCharacteristicItem>
@@ -39,6 +45,7 @@ CharacteristicSection.propTypes = {
   hp: PropTypes.number,
   weight: PropTypes.number,
   height: PropTypes.number,
+  showForm: PropTypes.bool
 };
 
 export default CharacteristicSection;

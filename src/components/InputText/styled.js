@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InputTextWrapper = styled.div`
   display: flex;
@@ -21,7 +21,10 @@ export const Input = styled.input`
   font-size: 1.6rem;
   padding: 1.2rem 0 1.2rem 0.8rem;
   background: #ffffff;
-  border: 2px solid #e4e9f2;
+  border: ${({ theme, inputError }) =>
+    inputError
+      ? `2px solid ${theme.colors.functional.action.default}`
+      : '2px solid #e4e9f2'};
   border-radius: 3px;
   overflow: hidden;
   display: flex;
@@ -36,4 +39,10 @@ export const Input = styled.input`
     color: #c5cef4;
     font-weight: 400;
   }
+`;
+
+export const Error = styled.span`
+  color: ${({ theme }) => theme.colors.functional.action.default};
+  font-size: 1.5rem;
+  font-weight: 600;
 `;

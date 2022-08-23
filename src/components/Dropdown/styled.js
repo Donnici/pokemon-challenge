@@ -5,8 +5,7 @@ export const DropdownWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.6rem;
-
-  padding: 20px;
+  width: 100%;
 `;
 
 export const Label = styled.label`

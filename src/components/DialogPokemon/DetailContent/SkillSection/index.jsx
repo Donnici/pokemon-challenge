@@ -2,9 +2,13 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import * as S from './styled';
+import * as S from '../styled';
+import SkillsSectionForm from './form';
 
-const SkillSection = ({skills}) => {
+const SkillSection = ({ skills, showForm }) => {
+  if (showForm) {
+    return <SkillsSectionForm />;
+  }
   return (
     <>
       <S.DialogPokemonSectionBox>
@@ -21,6 +25,7 @@ const SkillSection = ({skills}) => {
 
 SkillSection.propTypes = {
   skills: PropTypes.string,
+  showForm: PropTypes.bool,
 };
 
 export default SkillSection;
