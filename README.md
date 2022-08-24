@@ -7,9 +7,6 @@
 Desenvolver uma aplicação web com o objetivo de avaliarmos o seu domínio em front-end, ou seja, sua organização, estilo e boas práticas com o código, conhecimento dos frameworks e tecnologias utilizadas.
 
 #
-- [Issues](https://bitbucket.org/fdtedsd/teste-frontend/issues)
-
-#
 ## 📝 **Fluxo e Funcionalidades da aplicação**
 - [x] Landing page com um botão para iniciar a aplicação (qualquer url inexistente deve redirecionar o usuário para essa landing page).
 - [x] Personagem no centro da página.
@@ -20,7 +17,7 @@ Desenvolver uma aplicação web com o objetivo de avaliarmos o seu domínio em f
 - [x] Usuário tem a opção de capturá-lo, clicando na pokébola, ou fechar o modal.
 - [x] Se ele capturar o Pokémon, esse Pokémon é exibido na SideBar e o modal de captura desaparece.
 - [x] Usuário pode capturar até 6 Pokémons.
-- [ ] Selecionando qualquer Pokémon na SideBar o usuário pode ver os detalhes do Pokémon.
+- [x] Selecionando qualquer Pokémon na SideBar o usuário pode ver os detalhes do Pokémon.
 - [x] O(s) tipo(s) do Pokémon deve ser traduzido (ex: water => Água).
 - [x] Usuário pode editar SOMENTE o nome de um Pokémon que foi capturado.
 - [x] Na SideBar o usuário tem a possibilidade de criar um Pokémon (um Pokémon pode ter no máximo 2 "tipos").
@@ -55,18 +52,6 @@ Desenvolver uma aplicação web com o objetivo de avaliarmos o seu domínio em f
 #
 ## ⚠️ **Observações**
 - Fique a vontade para mudar a estrutura de como estão os exemplos;
-- Muita atenção ao link das issues por que lá estão descritas as tarefas para serem executadas.
 - Você pode implementar a aplicação usando typescript, assim como o uso de PropTypes.
 - Mesmo a aplicação sendo pequena, o uso do redux está liberado.
 - Os componentes devem ser responsivos.
-
-#
-## ➕ **Opcional**
-#### **Esperamos que você tenha curiosidade em criar testes para aplicação, mas não se preocupe, isso é opcional**
- - Teste unitário
- - Teste de integração
- - Teste de interface
-
-#
-## 📝 **License**
-**FDTE Copyright © 2020**
